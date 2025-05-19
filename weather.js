@@ -7,6 +7,11 @@ const api_url_forecast = 'http://api.weatherapi.com/v1/forecast.json?key=' + api
 //     'Authorization': `Bearer ${apiKey}`,
 //   },
 // };
+document.getElementById("theme-toggle").addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+});
+
+
 document.getElementById('get-weather-button').addEventListener('click', function(e) {
     e.preventDefault();
     const city = document.getElementById('city-input').value;
