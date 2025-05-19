@@ -1,0 +1,67 @@
+/* Variables */
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --text-color: #333;
+  --background-color: #f4f4f4;
+}
+/* var(--primary-color);
+var(--secondary-color);
+var(--text-color);
+var(--background-color); */
+
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Common */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin: 1rem 0;
+    color: var(--secondary-color);
+}
+
+/* Forms */
+
+/* Weather cards */
+
+#weather-info-forecast,
+#weather-info-current {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.weather-card {
+    background-color: var(--background-color);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+    padding: 20px;
+    margin: 20px;
+    width: 300px;
+    text-align: center;
+}
+

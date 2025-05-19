@@ -40,10 +40,14 @@ function getWeatherCurrent(city) {
     
         document.getElementById('weather-info-current').innerHTML = `
             <h2>Weather in ${location}, ${country}</h2>
-            <p>Temperature: ${temperature}°C</p>
-            <p>Condition: ${condition}</p>
-            <p>Humidity: ${humidity}%</p>
-            <p>Wind Speed: ${windSpeed} kph</p>
+            <div class="weather-card">
+                <h3>Current Weather</h3>
+                <img src="${weather.condition.icon}" alt="${condition}">
+                <p>Temperature: ${temperature}°C</p>
+                <p>Condition: ${condition}</p>
+                <p>Humidity: ${humidity}%</p>
+                <p>Wind Speed: ${windSpeed} kph</p>
+            </div>
         `;
     })
     .catch(error => {
@@ -76,7 +80,7 @@ function getWeatherForecast(city) {
             const condition = day.day.condition.text;
     
             forecastHTML += `
-                <div class="forecast-day">
+                <div class="weather-card forecast-day">
                     <h3>${date.toDateString()}</h3>
                     <p>Max Temperature: ${temperatureMax}°C</p>
                     <p>Min Temperature: ${temperatureMin}°C</p>
