@@ -45,13 +45,15 @@ function getWeatherCurrent(city) {
     
         document.getElementById('weather-info-current').innerHTML = `
             <h2>Weather in ${location}, ${country}</h2>
-            <div class="weather-card">
-                <h3>Current Weather</h3>
-                <img src="${weather.condition.icon}" alt="${condition}">
-                <p>Temperature: ${temperature}°C</p>
-                <p>Condition: ${condition}</p>
-                <p>Humidity: ${humidity}%</p>
-                <p>Wind Speed: ${windSpeed} kph</p>
+            <div class="centering-container">
+                <div class="weather-card">
+                    <h3>Current Weather</h3>
+                    <img src="${weather.condition.icon}" alt="${condition}">
+                    <p>Temperature: ${temperature}°C</p>
+                    <p>Condition: ${condition}</p>
+                    <p>Humidity: ${humidity}%</p>
+                    <p>Wind Speed: ${windSpeed} kph</p>
+                </div>
             </div>
         `;
     })
@@ -77,13 +79,15 @@ function getWeatherForecast(city) {
         const country = data.location.country;
     
         let forecastHTML = `<h2>3-Day Weather Forecast for ${location}, ${country}</h2>`;
-    
+        forecastHTML += '<div class="is-flex">';
         forecast.forEach(day => {
             const date = new Date(day.date);
             const temperatureMax = day.day.maxtemp_c;
             const temperatureMin = day.day.mintemp_c;
             const condition = day.day.condition.text;
-    
+            const weather = day.day.condition;
+            console.log(weather);
+            console.log(day);
             forecastHTML += `
                 <div class="weather-card forecast-day">
                     <h3>${date.toDateString()}</h3>
@@ -93,8 +97,9 @@ function getWeatherForecast(city) {
                 </div>
             `;
         });
+        forecastHTML += '</div>';
     
-        document.getElementById('weather-info-forecast').innerHTML = forecastHTML;
+        document.getElementById('forecast-weather').innerHTML = forecastHTML;
     })
     .catch(error => {
       console.error('There has been a problem with your fetch operation:', error);
